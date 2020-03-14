@@ -1,0 +1,342 @@
+******************************************************************************
+                  TI ARM Linker PC v18.12.1                    
+******************************************************************************
+>> Linked Mon Dec 23 23:11:31 2019
+
+OUTPUT FILE NAME:   <uart_echo.out>
+ENTRY POINT SYMBOL: "_c_int00_noargs"  address: 00006039
+
+
+MEMORY CONFIGURATION
+
+         name            origin    length      used     unused   attr    fill
+----------------------  --------  ---------  --------  --------  ----  --------
+  FLASH                 00000000   00100000  000062b8  000f9d48  R  X
+  SRAM                  20000000   00040000  00000224  0003fddc  RW X
+
+
+SEGMENT ALLOCATION MAP
+
+run origin  load origin   length   init length attrs members
+----------  ----------- ---------- ----------- ----- -------
+00000000    00000000    000062bc   000062bc    r-x
+  00000000    00000000    00000200   00000200    r-- .intvecs
+  00000200    00000200    00003bb4   00003bb4    r-- .const
+  00003db4    00003db4    000024f0   000024f0    r-x .text
+  000062a8    000062a8    00000014   00000014    r-- .cinit
+20000000    20000000    00000224   00000000    rw-
+  20000000    20000000    00000200   00000000    rw- .stack
+  20000200    20000200    00000024   00000000    rw- .bss
+
+
+SECTION ALLOCATION MAP
+
+ output                                  attributes/
+section   page    origin      length       input sections
+--------  ----  ----------  ----------   ----------------
+.intvecs   0    00000000    00000200     
+                  00000000    00000200     startup_ccs.obj (.intvecs)
+
+.const     0    00000200    00003bb4     
+                  00000200    00001a46     frame.obj (.const:.string:g_pui8Top)
+                  00001c46    00000786     frame.obj (.const:.string:g_pui8Bottom)
+                  000023cc    00000782     grlib.lib : fontcmss18b.obj (.const:.string:g_pui8Cmss18bData)
+                  00002b4e    00000546     frame.obj (.const:.string:g_pui8Left)
+                  00003094    00000546     frame.obj (.const:.string:g_pui8Right)
+                  000035da    00000002     --HOLE-- [fill = 0]
+                  000035dc    000001b0     driverlib.lib : sysctl.obj (.const:g_pppui32XTALtoVCO)
+                  0000378c    0000017c     frame.obj (.const:.string:g_pui8TopLeft)
+                  00003908    00000173     frame.obj (.const:.string:g_pui8TopRight)
+                  00003a7b    000000d0     frame.obj (.const:.string:g_pui8BottomLeft)
+                  00003b4b    00000001     --HOLE-- [fill = 0]
+                  00003b4c    000000c8     grlib.lib : fontcmss18b.obj (.const:g_sFontCmss18b)
+                  00003c14    000000c4     frame.obj (.const:.string:g_pui8BottomRight)
+                  00003cd8    0000006c     driverlib.lib : sysctl.obj (.const:g_pui32Xtals)
+                  00003d44    00000030                   : sysctl.obj (.const:g_sXTALtoMEMTIM)
+                  00003d74    00000028     kentec320x240x16_ssd2119.obj (.const:g_sKentec320x240x16_SSD2119)
+                  00003d9c    00000010     grlib.lib : context.obj (.const)
+                  00003dac    00000008     driverlib.lib : sysctl.obj (.const)
+
+.text      0    00003db4    000024f0     
+                  00003db4    000004dc     pinout.obj (.text:PinoutSet)
+                  00004290    00000484     kentec320x240x16_ssd2119.obj (.text:Kentec320x240x16_SSD2119Init)
+                  00004714    00000374     grlib.lib : image.obj (.text:InternalImageDraw)
+                  00004a88    000002f8               : image.obj (.text:PixelTransparentDraw)
+                  00004d80    00000254               : string.obj (.text:GrFontGlyphRender)
+                  00004fd4    00000200     driverlib.lib : sysctl.obj (.text:SysCtlClockFreqSet)
+                  000051d4    000001f8     frame.obj (.text:FrameDraw)
+                  000053cc    000001d0     uart_echo.obj (.text:main)
+                  0000559c    000001cc     kentec320x240x16_ssd2119.obj (.text:Kentec320x240x16_SSD2119PixelDrawMultiple)
+                  00005768    00000194     kentec320x240x16_ssd2119.obj (.text:Kentec320x240x16_SSD2119RectFill)
+                  000058fc    00000132     driverlib.lib : gpio.obj (.text:GPIOPadConfigSet)
+                  00005a2e    000000c0     grlib.lib : string.obj (.text:GrDefaultStringRenderer)
+                  00005aee    00000002     startup_ccs.obj (.text:FaultISR)
+                  00005af0    000000b0     kentec320x240x16_ssd2119.obj (.text:Kentec320x240x16_SSD2119LineDrawH)
+                  00005ba0    000000b0     kentec320x240x16_ssd2119.obj (.text:Kentec320x240x16_SSD2119LineDrawV)
+                  00005c50    00000078     kentec320x240x16_ssd2119.obj (.text:Kentec320x240x16_SSD2119PixelDraw)
+                  00005cc8    00000068     grlib.lib : context.obj (.text:GrContextInit)
+                  00005d30    00000068               : string.obj (.text:GrStringWidthGet)
+                  00005d98    00000066               : context.obj (.text:GrContextClipRegionSet)
+                  00005dfe    00000002     startup_ccs.obj (.text:IntDefaultHandler)
+                  00005e00    0000005c     uart_echo.obj (.text:UARTIntHandler)
+                  00005e5c    0000005a     grlib.lib : string.obj (.text:FontWideGlyphDataGet)
+                  00005eb6    0000004a               : string.obj (.text:UpdateContextCharMapping)
+                  00005f00    00000048     driverlib.lib : sysctl.obj (.text:_SysCtlFrequencyGet)
+                  00005f48    00000044     rtsv7M4_T_le_v4SPD16_eabi.lib : autoinit.c.obj (.text:__TI_auto_init_nobinit_nopinit:__TI_auto_init_nobinit_nopinit)
+                  00005f8c    0000003c     driverlib.lib : lcd.obj (.text:LCDIDDTimingSet)
+                  00005fc8    0000003a     grlib.lib : string.obj (.text:FontGlyphDataGet)
+                  00006002    00000002     kentec320x240x16_ssd2119.obj (.text:Kentec320x240x16_SSD2119Flush)
+                  00006004    00000034     driverlib.lib : sysctl.obj (.text:SysCtlPeripheralEnable)
+                  00006038    00000034     rtsv7M4_T_le_v4SPD16_eabi.lib : boot_cortex_m.c.obj (.text:_c_int00_noargs:_c_int00_noargs)
+                  0000606c    0000002e     grlib.lib : string.obj (.text:GrStringNextCharGet)
+                  0000609a    0000002c               : string.obj (.text:GrFontBaselineGet)
+                  000060c6    0000002a     driverlib.lib : gpio.obj (.text:GPIODirModeSet)
+                  000060f0    00000028     uart_echo.obj (.text:UARTSend)
+                  00006118    00000026     grlib.lib : string.obj (.text:GrFontInfoGet)
+                  0000613e    00000022               : string.obj (.text:GrFontGlyphDataGet)
+                  00006160    00000022     driverlib.lib : lcd.obj (.text:LCDModeSet)
+                  00006182    00000002     startup_ccs.obj (.text:NmiSR)
+                  00006184    00000020     driverlib.lib : sysctl.obj (.text:_SysCtlMemTimingGet)
+                  000061a4    0000001e     grlib.lib : string.obj (.text:GrFontCodepageGet)
+                  000061c2    00000016               : string.obj (.text:GrStringDraw)
+                  000061d8    00000016     kentec320x240x16_ssd2119.obj (.text:Kentec320x240x16_SSD2119ColorTranslate)
+                  000061ee    00000012     driverlib.lib : gpio.obj (.text:GPIOPinTypeEthernetLED)
+                  00006200    00000012                   : gpio.obj (.text:GPIOPinTypeLCD)
+                  00006212    00000012     rtsv7M4_T_le_v4SPD16_eabi.lib : copy_zero_init.c.obj (.text:decompress:ZI:__TI_zero_init_nomemset:__TI_zero_init_nomemset)
+                  00006224    00000010     driverlib.lib : interrupt.obj (.text:IntMasterEnable)
+                  00006234    0000000e     grlib.lib : image.obj (.text:GrImageDraw)
+                  00006242    0000000e     driverlib.lib : uart.obj (.text:UARTCharGetNonBlocking)
+                  00006250    0000000c                   : cpu.obj (.text:CPUcpsie)
+                  0000625c    0000000c                   : lcd.obj (.text:LCDIDDCommandWrite)
+                  00006268    0000000c                   : lcd.obj (.text:LCDIDDDataWrite)
+                  00006274    00000008     grlib.lib : charmap.obj (.text:GrMapISO8859_1_Unicode)
+                  0000627c    00000006     driverlib.lib : gpio.obj (.text:GPIOPinWrite)
+                  00006282    00000006     grlib.lib : string.obj (.text:GrContextFontSet)
+                  00006288    00000006     startup_ccs.obj (.text:ResetISR)
+                  0000628e    00000006     driverlib.lib : sysctl.obj (.text:SysCtlDelay)
+                  00006294    00000004                   : lcd.obj (.text:LCDDMAConfigSet)
+                  00006298    00000004                   : lcd.obj (.text:LCDIDDConfigSet)
+                  0000629c    00000004     rtsv7M4_T_le_v4SPD16_eabi.lib : pre_init.c.obj (.text:_system_pre_init)
+                  000062a0    00000004                                   : exit.c.obj (.text:abort:abort)
+
+.cinit     0    000062a8    00000014     
+                  000062a8    00000008     (.cinit..bss.load) [load image, compression = zero_init]
+                  000062b0    00000004     (__TI_handler_table)
+                  000062b4    00000008     (__TI_cinit_table)
+
+.init_array 
+*          0    00000000    00000000     UNINITIALIZED
+
+.bss       0    20000200    00000024     UNINITIALIZED
+                  20000200    00000020     (.common:g_pui8Dictionary)
+                  20000220    00000004     (.common:g_psGrLibDefaults)
+
+.stack     0    20000000    00000200     UNINITIALIZED
+                  20000000    00000004     rtsv7M4_T_le_v4SPD16_eabi.lib : boot_cortex_m.c.obj (.stack)
+                  20000004    000001fc     --HOLE--
+
+MODULE SUMMARY
+
+       Module                         code   ro data   rw data
+       ------                         ----   -------   -------
+    .\
+       uart_echo.obj                  596    0         0      
+       startup_ccs.obj                12     512       0      
+    +--+------------------------------+------+---------+---------+
+       Total:                         608    512       0      
+                                                              
+    .\drivers\
+       frame.obj                      504    12507     0      
+       kentec320x240x16_ssd2119.obj   2516   40        0      
+       pinout.obj                     1244   0         0      
+    +--+------------------------------+------+---------+---------+
+       Total:                         4264   12547     0      
+                                                              
+    C:/ti/tivaware_c_series_2_1_4_178/driverlib/ccs/Debug/driverlib.lib
+       sysctl.obj                     674    596       0      
+       gpio.obj                       390    0         0      
+       lcd.obj                        126    0         0      
+       interrupt.obj                  16     0         0      
+       uart.obj                       14     0         0      
+       cpu.obj                        12     0         0      
+    +--+------------------------------+------+---------+---------+
+       Total:                         1232   596       0      
+                                                              
+    C:/ti/tivaware_c_series_2_1_4_178/grlib/ccs/Debug/grlib.lib
+       fontcmss18b.obj                0      2122      0      
+       image.obj                      1658   0         32     
+       string.obj                     1334   0         0      
+       context.obj                    206    16        4      
+       charmap.obj                    8      0         0      
+    +--+------------------------------+------+---------+---------+
+       Total:                         3206   2138      36     
+                                                              
+    C:\ti\ccs901\ccs\tools\compiler\ti-cgt-arm_18.12.1.LTS\lib\rtsv7M4_T_le_v4SPD16_eabi.lib
+       autoinit.c.obj                 68     0         0      
+       boot_cortex_m.c.obj            52     0         0      
+       copy_zero_init.c.obj           18     0         0      
+       exit.c.obj                     4      0         0      
+       pre_init.c.obj                 4      0         0      
+    +--+------------------------------+------+---------+---------+
+       Total:                         146    0         0      
+                                                              
+       Stack:                         0      0         512    
+       Linker Generated:              0      20        0      
+    +--+------------------------------+------+---------+---------+
+       Grand Total:                   9456   15813     548    
+
+
+LINKER GENERATED COPY TABLES
+
+__TI_cinit_table @ 000062b4 records: 1, size/record: 8, table size: 8
+	.bss: load addr=000062a8, load size=00000008 bytes, run addr=20000200, run size=00000024 bytes, compression=zero_init
+
+
+LINKER GENERATED HANDLER TABLE
+
+__TI_handler_table @ 000062b0 records: 1, size/record: 4, table size: 4
+	index: 0, handler: __TI_zero_init
+
+
+GLOBAL SYMBOLS: SORTED ALPHABETICALLY BY Name 
+
+address   name                          
+-------   ----                          
+000062a1  C$$EXIT                       
+00006251  CPUcpsie                      
+000051d5  FrameDraw                     
+000060c7  GPIODirModeSet                
+000058fd  GPIOPadConfigSet              
+000061ef  GPIOPinTypeEthernetLED        
+00006201  GPIOPinTypeLCD                
+0000627d  GPIOPinWrite                  
+00005d99  GrContextClipRegionSet        
+00006283  GrContextFontSet              
+00005cc9  GrContextInit                 
+00005a2f  GrDefaultStringRenderer       
+0000609b  GrFontBaselineGet             
+000061a5  GrFontCodepageGet             
+0000613f  GrFontGlyphDataGet            
+00004d81  GrFontGlyphRender             
+00006119  GrFontInfoGet                 
+00006235  GrImageDraw                   
+00006275  GrMapISO8859_1_Unicode        
+000061c3  GrStringDraw                  
+0000606d  GrStringNextCharGet           
+00005d31  GrStringWidthGet              
+00006225  IntMasterEnable               
+00004291  Kentec320x240x16_SSD2119Init  
+00006295  LCDDMAConfigSet               
+0000625d  LCDIDDCommandWrite            
+00006299  LCDIDDConfigSet               
+00006269  LCDIDDDataWrite               
+00005f8d  LCDIDDTimingSet               
+00006161  LCDModeSet                    
+00003db5  PinoutSet                     
+00006289  ResetISR                      
+00004fd5  SysCtlClockFreqSet            
+0000628f  SysCtlDelay                   
+00006005  SysCtlPeripheralEnable        
+00006243  UARTCharGetNonBlocking        
+00005e01  UARTIntHandler                
+000060f1  UARTSend                      
+20000200  __STACK_END                   
+00000200  __STACK_SIZE                  
+20000200  __STACK_TOP                   
+000062b4  __TI_CINIT_Base               
+000062bc  __TI_CINIT_Limit              
+000062b0  __TI_Handler_Table_Base       
+000062b4  __TI_Handler_Table_Limit      
+00005f49  __TI_auto_init_nobinit_nopinit
+ffffffff  __TI_pprof_out_hndl           
+ffffffff  __TI_prof_data_size           
+ffffffff  __TI_prof_data_start          
+00000000  __TI_static_base__            
+00006213  __TI_zero_init_nomemset       
+ffffffff  __binit__                     
+ffffffff  __c_args__                    
+UNDEFED   __mpu_init                    
+20000000  __stack                       
+00006039  _c_int00_noargs               
+UNDEFED   _system_post_cinit            
+0000629d  _system_pre_init              
+000062a1  abort                         
+ffffffff  binit                         
+00000000  g_pfnVectors                  
+00003d9c  g_psDefaultCodePointMapTable  
+00003b4c  g_sFontCmss18b                
+00003d74  g_sKentec320x240x16_SSD2119   
+000053cd  main                          
+
+
+GLOBAL SYMBOLS: SORTED BY Symbol Address 
+
+address   name                          
+-------   ----                          
+00000000  __TI_static_base__            
+00000000  g_pfnVectors                  
+00000200  __STACK_SIZE                  
+00003b4c  g_sFontCmss18b                
+00003d74  g_sKentec320x240x16_SSD2119   
+00003d9c  g_psDefaultCodePointMapTable  
+00003db5  PinoutSet                     
+00004291  Kentec320x240x16_SSD2119Init  
+00004d81  GrFontGlyphRender             
+00004fd5  SysCtlClockFreqSet            
+000051d5  FrameDraw                     
+000053cd  main                          
+000058fd  GPIOPadConfigSet              
+00005a2f  GrDefaultStringRenderer       
+00005cc9  GrContextInit                 
+00005d31  GrStringWidthGet              
+00005d99  GrContextClipRegionSet        
+00005e01  UARTIntHandler                
+00005f49  __TI_auto_init_nobinit_nopinit
+00005f8d  LCDIDDTimingSet               
+00006005  SysCtlPeripheralEnable        
+00006039  _c_int00_noargs               
+0000606d  GrStringNextCharGet           
+0000609b  GrFontBaselineGet             
+000060c7  GPIODirModeSet                
+000060f1  UARTSend                      
+00006119  GrFontInfoGet                 
+0000613f  GrFontGlyphDataGet            
+00006161  LCDModeSet                    
+000061a5  GrFontCodepageGet             
+000061c3  GrStringDraw                  
+000061ef  GPIOPinTypeEthernetLED        
+00006201  GPIOPinTypeLCD                
+00006213  __TI_zero_init_nomemset       
+00006225  IntMasterEnable               
+00006235  GrImageDraw                   
+00006243  UARTCharGetNonBlocking        
+00006251  CPUcpsie                      
+0000625d  LCDIDDCommandWrite            
+00006269  LCDIDDDataWrite               
+00006275  GrMapISO8859_1_Unicode        
+0000627d  GPIOPinWrite                  
+00006283  GrContextFontSet              
+00006289  ResetISR                      
+0000628f  SysCtlDelay                   
+00006295  LCDDMAConfigSet               
+00006299  LCDIDDConfigSet               
+0000629d  _system_pre_init              
+000062a1  C$$EXIT                       
+000062a1  abort                         
+000062b0  __TI_Handler_Table_Base       
+000062b4  __TI_CINIT_Base               
+000062b4  __TI_Handler_Table_Limit      
+000062bc  __TI_CINIT_Limit              
+20000000  __stack                       
+20000200  __STACK_END                   
+20000200  __STACK_TOP                   
+ffffffff  __TI_pprof_out_hndl           
+ffffffff  __TI_prof_data_size           
+ffffffff  __TI_prof_data_start          
+ffffffff  __binit__                     
+ffffffff  __c_args__                    
+ffffffff  binit                         
+UNDEFED   __mpu_init                    
+UNDEFED   _system_post_cinit            
+
+[65 symbols]
